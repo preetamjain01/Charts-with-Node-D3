@@ -1,0 +1,18 @@
+<div class="text-center main-container">
+  <div class="text-center page-heading">Create New Announcements</div>
+
+  <div class="mat-card">
+    <div class="container-fluid inner-container ">
+      <div class="row">
+        <div class="col-sm-4 no-padding">
+          <app-announcements-sidebar (receivers)="onReceivers($event)"></app-announcements-sidebar>
+        </div>
+        <div class="col-sm-8">
+          <app-editor-area (editorText)="setEditorText($event)"></app-editor-area>
+        </div>
+      </div>
+
+      <button class="btn btn-secondary create-btn" (click)="createAnnouncement()">Create Announcement</button>
+    </div>
+  </div>
+</div>

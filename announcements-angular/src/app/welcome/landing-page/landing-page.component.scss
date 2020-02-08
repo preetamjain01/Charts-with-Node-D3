@@ -1,0 +1,83 @@
+@import "../../../styles/_variables.scss";
+
+a{
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+  opacity: 1;
+}
+
+a:hover{
+  text-decoration: none !important;
+  color: $primary-color !important;
+}
+
+.user-profile {
+  float: right;
+  .user-icon{
+    font-size: 1.8rem;
+  }
+  .user-name{
+    margin: 0 5%;
+  }
+}
+
+.logout{
+  float: right;
+}
+
+.menuType{
+  margin-right: 2rem;
+}
+
+.menuType:hover{
+    text-decoration: none !important;
+    color: $primary-color !important;
+}
+
+.margin{
+  margin-top: -0.5rem;
+}
+
+.credits{
+  float: right;
+
+  .icon{
+    margin: auto;
+    padding: 0% 0.5%;
+    .user-icon{
+      font-size: 2.5rem;
+      color: $primary-color;
+    }
+  }
+
+  .digit-text{
+    line-height: 1.1;
+
+    .digit{
+      font-size: 1.8rem;
+      padding-left: 20px;
+    }
+    .text{
+      font-size: 0.8rem;
+    }
+  }
+
+}
+
+.nav-bar{
+  border: 0 !important;
+}
+
+.logo{
+  position: absolute;
+  left: 43%;
+  font-family: "Indie Flower", cursive;
+  font-size: 4rem;
+  top: -1%;
+  font-weight: bold;
+}
+
+
+
+

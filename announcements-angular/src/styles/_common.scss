@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+%primary-header{
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+%page-heading{
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+
+%sub-heading{
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+%btn-secondary{
+    background: $secondary-color;
+    color: white;
+}
+

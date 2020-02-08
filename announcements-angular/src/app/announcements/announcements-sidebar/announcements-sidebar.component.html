@@ -1,0 +1,111 @@
+<div class="sidebar">
+<!--For saved charts-->
+<mat-accordion>
+  <mat-expansion-panel class=" text-center expantion-panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="accordion-title">
+        Select from Saved Charts
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <span class="desc-text">To add charts, drag and drop charts to editor</span>
+
+    <div *ngIf="allCharts.length > 0">
+      <div *ngFor="let chart of allCharts" class="chart-card container">
+        <div class="row">
+          <div class="col-sm-5">
+            <img src="{{chart.chart}}" class="img-thumbnail"/>
+          </div>
+          <div class="col-sm-7">
+            <div class="row">
+              <span class="name">{{chart.chartName}}</span>
+            </div>
+            <div class="row">
+              <span class="time">Time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<!--For receivers-->
+  <mat-accordion>
+    <mat-expansion-panel class=" text-center expantion-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="accordion-title">
+          Select receivers
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-radio-group class="" [(ngModel)]="receiversType">
+        <mat-radio-button class="" [value]="'input'">Enter Email</mat-radio-button>
+        <mat-radio-button class="" [value]="'file'">Upload CSV File</mat-radio-button>
+      </mat-radio-group>
+
+      <div *ngIf="receiversType === 'input'">
+        <div class="enter-email">
+          <span class="desc-text">Enter email address of receivers</span>
+        </div>
+
+        <div>
+          <form>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" [formControl]="emailFormControl">
+              <button mat-button
+                      matSuffix
+                      mat-icon-button
+                      (click)="addEmail()"
+                      disabled="{{emailFormControl.hasError('email')}}"
+                      aria-label="Clear">
+                <mat-icon class="add-icon">add_circle</mat-icon>
+              </button>
+              <mat-error *ngIf="emailFormControl.hasError('email')">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+          </form>
+        </div>
+
+        <mat-chip-list *ngIf="emailList.length > 0" #chipList>
+          <mat-chip *ngFor="let email of emailList; let i = index"
+                    [removable]="true"
+                    (remove)="removeEmail(i)">
+            {{email}}
+            <mat-icon matChipRemove >cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+
+      </div>
+
+
+      <div *ngIf="receiversType === 'file'">
+
+        <div class="enter-email">
+          <span class="desc-text">Upload CSV file with email list</span>
+        </div>
+
+        <app-file-selector (onFileSelected)="onFileSelected($event)"></app-file-selector>
+        <div *ngIf="showDataFields">
+          <mat-form-field >
+            <mat-select placeholder="Email Field" [(value)]="emailField">
+              <mat-option *ngFor="let field of this.fileData.meta.fields" [value]="field">
+                {{ field }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="save-btn">
+        <button mat-raised-button color="primary" (click)="saveReceivers()">Save</button>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+
+

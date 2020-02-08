@@ -1,0 +1,31 @@
+cd # See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+announcements-angular/node_modules
+# e2e
+announcements-angular/e2e/*.js
+announcements-angular/e2e/*.map
+# Backend Node server
+announcements-node/node_modules
+announcements-node/chartsOutput
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db

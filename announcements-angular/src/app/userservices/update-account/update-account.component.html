@@ -1,0 +1,76 @@
+<mat-card class="text-center main-container">
+
+  <div class="container-heading">Update Your Account</div>
+
+  <form novalidate [formGroup]="updateForm" (ngSubmit)="onSubmit(updateForm.value, updateForm.valid)">
+
+    <div>
+      <mat-form-field class="inline-form-field">
+        <input matInput
+               formControlName="firstname"
+               placeholder="First Name">
+        <mat-error *ngIf="updateForm.controls.firstname.invalid">First name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="inline-form-field">
+        <input matInput
+               formControlName="lastname"
+               placeholder="Last Name">
+        <mat-error *ngIf="updateForm.controls.lastname.invalid">Last name is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="inline-form-field">
+        <input matInput
+               formControlName="email"
+               placeholder="Email ">
+        <mat-error *ngIf="updateForm.controls.email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="inline-form-field">
+        <input matInput formControlName="phone"
+               placeholder="Phone No.">
+        <mat-error *ngIf="updateForm.controls.phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="form-field">
+        <input matInput
+               formControlName="username"
+               placeholder="Username">
+        <mat-error *ngIf="updateForm.controls.username.invalid">Username is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="inline-form-field">
+        <input matInput
+
+               [type]="hide ? 'text' : 'password'"
+               formControlName="password"
+               placeholder="Password">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="updateForm.controls.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="inline-form-field">
+        <input matInput
+
+               [type]="hide ? 'text' : 'password'"
+               formControlName="confirmPassword"
+               placeholder="Confirm Password">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="updateForm.controls.confirmPassword.invalid">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-error *ngIf="passwordMatchError">Password and confirm passwords should match</mat-error>
+
+    <button mat-raised-button class="createBtn" color="primary">Save</button>
+
+
+
+  </form>
+</mat-card>

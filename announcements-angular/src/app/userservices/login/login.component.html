@@ -1,0 +1,47 @@
+<div class="text-center">
+  <div>
+    <span class="logo">Charts</span>
+  </div>
+
+  <mat-card class=" main-container">
+
+    <div class="container-heading">Login</div>
+
+    <form class="container"
+          novalidate
+          [formGroup]="loginForm"
+          (ngSubmit)="login(loginForm.value, loginForm.valid)">
+      <mat-form-field class="form-field">
+        <input matInput
+               placeholder="Username"
+               formControlName="username">
+        <mat-error *ngIf="loginForm.controls.username.invalid">Username is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <input matInput
+               placeholder="Password"
+               [type]="hide ? 'text' : 'password'"
+               formControlName="password">
+        <mat-icon matSuffix class="hover" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="loginForm.controls.password.invalid">{{getPasswordError()}}</mat-error>
+      </mat-form-field>
+
+      <div class="forgotPassword">
+        <a routerLink="/forgotPassword">Forgot Password?</a>
+      </div>
+
+      <div>
+        <button mat-raised-button color="primary" type="submit">Log In</button>
+      </div>
+
+      <div class="signup">
+        <button routerLink="/signup" mat-button>New here? Sign Up!</button>
+      </div>
+    </form>
+
+
+  </mat-card>
+</div>
+
+

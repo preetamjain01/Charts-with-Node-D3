@@ -1,0 +1,10 @@
+<div [ngClass]="{'spinner-overlay': activate}">
+
+  <div *ngIf="activate">
+    <mat-progress-spinner
+      class="spinner"
+      [mode]="'indeterminate'">
+    </mat-progress-spinner>
+  </div>
+  <router-outlet></router-outlet>
+</div>

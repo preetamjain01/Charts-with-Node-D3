@@ -1,0 +1,50 @@
+<div>
+  <span class="logo">Charts</span>
+</div>
+
+<nav mat-tab-nav-bar class="nav-bar">
+  <a mat-tab-link
+     [routerLink]="'./createCharts'"
+     routerLinkActive #rlac="routerLinkActive"
+     [routerLinkActiveOptions]="{exact:true}"
+     [active]="rlac.isActive">
+    Create Charts
+  </a>
+
+  <a mat-tab-link
+     [routerLink]="'./createAnnouncements'"
+     routerLinkActive #rlaa="routerLinkActive"
+     [routerLinkActiveOptions]="{exact:true}"
+     [active]="rlaa.isActive">
+    Create Announcements
+  </a>
+
+  <a mat-tab-link [matMenuTriggerFor]="menu" class="user-profile menuType">Hi, {{user.firstName}}
+    <mat-icon class="user-icon margin">person</mat-icon>
+  </a>
+
+  <mat-menu #menu="matMenu">
+    <a mat-tab-link mat-menu-item (click)="updateForm()">Update Profile</a>
+    <a mat-tab-link mat-menu-item (click)="logout()">Logout</a>
+  </mat-menu>
+
+  <a mat-tab-link class="credits"
+     [routerLink]="'./addCredits'"
+     routerLinkActive #rlacr="routerLinkActive"
+     [routerLinkActiveOptions]="{exact:true}"
+     [active]="rlacr.isActive">
+    <span class="row">
+      <span class="col-sm-5 icon">
+            <mat-icon class="user-icon">account_balance_wallet</mat-icon>
+      </span>
+      <span class="col-sm-7 digit-text">
+        <div class="digit">{{user.credits}}</div>
+        <div class="text">Your Credits</div>
+      </span>
+    </span>
+  </a>
+
+</nav>
+
+
+<router-outlet></router-outlet>

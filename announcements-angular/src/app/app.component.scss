@@ -1,0 +1,25 @@
+@import "../styles/_common.scss";
+@import "../styles/_variables.scss";
+
+.spinner-overlay{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  background: #ECEFF1;
+
+}
+
+.spinner{
+  position: fixed;
+  z-index: 999;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1 !important;
+}
+
+
+

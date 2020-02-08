@@ -1,0 +1,31 @@
+<mat-card class="text-center main-container">
+  <div class="container-heading">
+    <i class="mat-icon material-icons icon-wallet">account_balance_wallet</i>
+    Add Credits
+  </div>
+
+  <form class="container"
+        novalidate
+        [formGroup]="addCreditsForm"
+        (ngSubmit)="addCredits(addCreditsForm.value, addCreditsForm.valid)">
+
+    <div class="text-center">
+      <div class="value">{{availableCredits}}</div>
+      <div class="text">Your Credits Balance</div>
+    </div>
+
+    <mat-form-field class="form-field">
+      <input matInput
+             placeholder="Enter Credits to be Added in Wallet"
+             type="number"
+             formControlName="credits">
+      <mat-error *ngIf="addCreditsForm.controls.credits.invalid">Credits are required</mat-error>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">Add</button>
+    </div>
+
+  </form>
+
+</mat-card>

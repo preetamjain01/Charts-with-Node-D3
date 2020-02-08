@@ -1,0 +1,73 @@
+<div class="main-container">
+
+  <div class="text-center page-heading">
+    <img class="heading-image" src="../../../assets/images/Pie-Chart-icon.png" alt="Bar Chart">
+    Create new pie chart
+  </div>
+
+  <div class="container inner-container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="text-center inner-header">
+          <span class="sub-headings">Select a file to create a pie chart</span>
+        </div>
+        <div class="fu-container">
+          <app-file-selector (onFileSelected)="onFileSelected($event)"></app-file-selector>
+        </div>
+      </div>
+
+      <div class="col-sm" *ngIf="showDataFields">
+
+        <div class="text-center inner-header">
+          <span class="sub-headings">Select your configurations</span>
+        </div>
+        <form novalidate [formGroup]="pieChartForm" (ngSubmit)="onSubmit(pieChartForm.value, pieChartForm.valid)">
+
+          <div class="row">
+            <div class="col-sm-5 field-label">
+              <span>Select value for Label on chart</span>
+            </div>
+
+            <div class="col-sm-7">
+              <mat-form-field>
+                <mat-select formControlName="label" placeholder="Label">
+                  <mat-option *ngFor="let field of this.fileData.meta.fields" [value]="field">
+                    {{ field }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="pieChartForm.controls.label.invalid">Label is required</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-5 field-label">
+              <span>Select values on pie chart</span>
+            </div>
+
+            <div class="col-sm-7">
+              <mat-form-field>
+                <mat-select formControlName="values" placeholder="Values">
+                  <mat-option *ngFor="let field of this.fileData.meta.fields" [value]="field">
+                    {{ field }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="pieChartForm.controls.values.invalid">Values is required</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button mat-raised-button color="primary">Submit</button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <app-chart-result *ngIf="chartData" [chartData]="chartData"></app-chart-result>
+</div>
+
+

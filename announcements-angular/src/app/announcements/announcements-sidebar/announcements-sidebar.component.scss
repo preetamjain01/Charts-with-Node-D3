@@ -1,0 +1,47 @@
+.sidebar{
+  max-height: 30rem;
+  min-height: 30rem;
+  overflow: auto;
+
+  .enter-email{
+    margin: 2% 0;
+  }
+}
+
+.accordion-title{
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.desc-text{
+  font-weight: 900;
+}
+
+.chart-card{
+  margin: 5% 0;
+  .name{
+    font-size: 1.1rem;
+  }
+  .time{
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 7%;
+  }
+}
+
+.full-width{
+  width: 100%;
+}
+
+.expantion-panel{
+  box-shadow: none !important;
+}
+
+.add-icon{
+  font-size: 1.7rem !important;
+  color: green;
+}
+
+.save-btn{
+  margin: 3% 0;
+}

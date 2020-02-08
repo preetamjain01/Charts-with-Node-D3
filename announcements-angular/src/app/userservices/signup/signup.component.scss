@@ -1,0 +1,33 @@
+@import "../../../styles/_common.scss";
+
+.main-container{
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 30rem;
+  background: white;
+  margin: auto;
+  margin-top: 8%;
+  height: 470px;
+  padding: 2%;
+}
+
+.container-heading{
+  @extend %primary-header;
+}
+
+.form-field{
+  width: 95%;
+}
+
+.inline-form-field{
+  width: 45%;
+  margin: 1% 2%;
+}
+
+.createBtn {
+  margin: 6% 0 2% 0;
+}
+
+.backToLogin{
+  font-size: 0.8rem;
+}
